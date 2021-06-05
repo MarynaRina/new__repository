@@ -33,10 +33,10 @@ const start = function() {
                 if (isNumber(strNum)) {
                 const num = +strNum;
                 if (num > rNum) {
-                    alert('Загаданное число меньше');
+                    alert(`Загаданное число меньше, осталолсь попыток  ${attempt}`);
                     game();
                 } else if (num < rNum) {
-                    alert('Загаданное число больше');
+                    alert(`Загаданное число больше, осталось попыток: ${attempt}`);
                     game();
                 } else {
                 if (confirm('Поздравляю, Вы угадали!!! Хотели бы сыграть еще?')) {
