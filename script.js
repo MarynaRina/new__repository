@@ -1,59 +1,37 @@
 'use strict';
 
-// Рандомное число
-const randomNum = function(maxNum) {
-    return Math.floor(Math.random() * Math.floor(maxNum));
-};
+const books = document.querySelectorAll('.books'),
+      booksElem = document.querySelectorAll('.book'),
+      ulElems = document.querySelectorAll('ul'),
+      aElems = document.querySelectorAll('a'),
+      liElems = document.querySelectorAll('li');
+// 1)
+booksElem[1].after(booksElem[0]);
+booksElem[3].after(booksElem[5]);
+booksElem[5].after(booksElem[2]);
+booksElem[3].before(booksElem[4]);
 
-// Число ли это?
-let isNumber = function(n) {
-    return !isNaN(parseFloat(n)) && isFinite(n);
-};
 
- 
-const start = function() {
-    let rNum = randomNum(100);
-    // Начало игры 
-    let attempt = 10;
-    const game = function() {
-        attempt--;
-        if (attempt < 0) {
-            if (confirm('Попытки закончились, хотите сыграть еще?')) {
-                start();
-            } else {
-                alert('Игра окончена');
-                return;
-            }
-            } else {
-                const strNum = prompt('Угадай число от 1 до 100');
-                if (strNum === null) {
-                    alert('Игра окончена');
-                    return;
-                }
-                if (isNumber(strNum)) {
-                const num = +strNum;
-                if (num > rNum) {
-                    alert(`Загаданное число меньше, осталолсь попыток  ${attempt}`);
-                    game();
-                } else if (num < rNum) {
-                    alert(`Загаданное число больше, осталось попыток: ${attempt}`);
-                    game();
-                } else {
-                if (confirm('Поздравляю, Вы угадали!!! Хотели бы сыграть еще?')) {
-                    start();
-                } else {
-                    alert('Конец игры! Возвращайтесь еще.');
-                    return;
-                }
-                }
-                } else {
-                    alert('Введи число!');
-                    game();
-                }
-            }
-    };
-    game();
-};
+// 2)
+document.querySelector('body').style.backgroundImage = 'url(./image/you-dont-know-js.jpg)'; 
 
-// Запуск игры
-start();
+// 3)
+aElems[4].text = 'Книга 3. this и Прототипы Объектов';
+
+// 4)
+document.querySelector('.adv').remove();
+
+// 5)
+
+liElems[3].after(liElems[8]);
+liElems[3].after(liElems[6]);
+liElems[10].before(liElems[2]);
+
+const fiveLiElem = ulElems[5].querySelectorAll('li');
+fiveLiElem[1].after(fiveLiElem[9]);
+fiveLiElem[4].after(fiveLiElem[2]);
+fiveLiElem[7].after(fiveLiElem[5]);
+
+// // 6)
+
+ulElems[2].append('Глава 8: За пределами ES6');
