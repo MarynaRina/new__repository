@@ -32,6 +32,9 @@ fiveLiElem[1].after(fiveLiElem[9]);
 fiveLiElem[4].after(fiveLiElem[2]);
 fiveLiElem[7].after(fiveLiElem[5]);
 
-// // 6)
+// 6)
 
 ulElems[2].append('Глава 8: За пределами ES6');
+
+const sixliElems = ulElems[2].querySelectorAll('li');
+ulElems[2].append(sixliElems[9]);
