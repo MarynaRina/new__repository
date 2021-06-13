@@ -19,11 +19,12 @@ DomElement.prototype.newElem = function () {
         elem.id = this.selector.slice(1);
         elem.textContent = 'До Нового Года осталось 200 дней';
     }
-    elem.style.cssText = `height: ${this.height}px;
+    elem.style.cssText = `
+        height: ${this.height}px;
         width: ${this.width}px;
         background: ${this.bg};
         font-size: ${this.fontSize}px;
-        margin: 200px 500px;
+        margin: 200px 700px;
         padding: 30px;
         border-radius: 15px`;
     return elem;
