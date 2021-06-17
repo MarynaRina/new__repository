@@ -37,29 +37,3 @@ const reset = function(){
 
 reset();
 
-
-
-//     let pos = 0;
-
-//     let animate = function(){
-//         pos++;
-//         if(pos < 500) {
-//             starImg.style.top = pos + 'px';
-//         }
-//     };
-// setInterval(animate, 1000);
-
-
-// starImg.onclick = function() {
-//       let start = Date.now();
-
-//       let timer = setInterval(function() {
-//         let timePassed = Date.now() - start;
-
-//         starImg.style.top = timePassed / 5 + 'px';
-
-//         if (timePassed > 2000) {
-//             clearInterval(timer);
-//         } 
-//       }, 20);
-// };
