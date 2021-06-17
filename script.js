@@ -1,37 +1,65 @@
 'use strict';
 
-function DomElement (selector, height, width, bg, fontSize) {
-    this.selector = selector;
-    this.height = height;
-    this.width = width;
-    this.bg = bg;
-    this.fontSize = fontSize;
-}
+let btn = document.querySelector('.btn'),
+    btnReset = document.querySelector('.btn_reset'),
+    cat = document.querySelector('.cat'),
+    star = document.querySelector('.star'),
+    count = 0;
 
-DomElement.prototype.newElem = function () {
-    let elem;
-    if (this.selector[0] === '.') {
-        elem = document.createElement('div');
-        elem.className = this.selector.slice(1);
-    }
-    if (this.selector[0] === '#') {
-        elem = document.createElement('p');
-        elem.id = this.selector.slice(1);
-        elem.textContent = 'До Нового Года осталось 200 дней';
-    }
-    elem.style.cssText = `
-        height: ${this.height}px;
-        width: ${this.width}px;
-        background: ${this.bg};
-        font-size: ${this.fontSize}px;
-        margin: 200px 700px;
-        padding: 30px;
-        border-radius: 15px`;
-    return elem;
+    let flyInterval;
+    let flyAnimate = function(){
+        flyInterval = requestAnimationFrame(flyAnimate);
+        count++;
+        if (count < 360) {
+            cat.style.left = count * 6 + 'px';
+            star.style.width = count + 'px';
+        } else {
+            cancelAnimationFrame(flyAnimate);
+        }
+    };
+    let animate = false;
+    btn.addEventListener('click', function(){
+        if (!animate) {
+            flyInterval = requestAnimationFrame(flyAnimate);
+            animate = true;
+        } else {
+            animate = false;
+            cancelAnimationFrame(flyInterval);
+        }
+    });
+
+
+const reset = function(){
+    btnReset.addEventListener('click', function(){
+        count = 0;
+    });
 };
 
-let elDiv = new DomElement('.block', 100, 200, '#40E0D0', 12);
-let elParagraph = new DomElement('#best', 150, 400, '#7B68EE', 30);
+reset();
 
-document.body.appendChild(elDiv.newElem());
-document.body.appendChild(elParagraph.newElem());
+
+
+//     let pos = 0;
+
+//     let animate = function(){
+//         pos++;
+//         if(pos < 500) {
+//             starImg.style.top = pos + 'px';
+//         }
+//     };
+// setInterval(animate, 1000);
+
+
+// starImg.onclick = function() {
+//       let start = Date.now();
+
+//       let timer = setInterval(function() {
+//         let timePassed = Date.now() - start;
+
+//         starImg.style.top = timePassed / 5 + 'px';
+
+//         if (timePassed > 2000) {
+//             clearInterval(timer);
+//         } 
+//       }, 20);
+// };
